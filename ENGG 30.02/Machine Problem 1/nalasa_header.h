@@ -660,8 +660,8 @@ void bonus_a_swap_str(string *s1, string *s2){
 }
  
 int bonus_a_char_index(char c){
-    string alphabet_capital = "01234556789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    string alphabet_lowercase = "0123456789abcdefghijklmnopqrstuvwxyz";
+    string alphabet_capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string alphabet_lowercase = "abcdefghijklmnopqrstuvwxyz";
  
     int c_index = -1;
  
@@ -715,3 +715,4 @@ void bonus_c_display_total_payments(){
     cout << "Total payments received: PHP " << total_payment << ".00 \n";
     cout << "\n";
 }
+
