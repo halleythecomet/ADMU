@@ -1,6 +1,3 @@
-#define MANAGER_PASSCODE 123
-#define MAX_ATTEMPTS 3
-
 #include <iostream>
 #include <fstream>
 #include <string>
