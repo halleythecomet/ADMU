@@ -1,0 +1,8 @@
+Menu,1-pc Chickenjoy,1-pc Burger Steak,Jolli Spaghetti,Yumburger,Peach Mango Pie,Chocolate Sundae,
+Ala Carte,100,101,102,103,104,105,
+Regular Drink,110,111,112,113,0,0,
+Regular Fries,120,121,122,123,0,0,
+Medium Drink,130,131,132,133,0,0,
+Medium Fries,140,141,142,143,0,0,
+Large Drink,150,151,152,153,0,0,
+Large Fries,160,161,162,163,0,0,
