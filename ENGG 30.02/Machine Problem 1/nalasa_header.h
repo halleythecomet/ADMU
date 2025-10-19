@@ -1,13 +1,13 @@
 #define MANAGER_PASSCODE 123
 #define MAX_ATTEMPTS 3
- 
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cstdio>
 
 using namespace std;
- 
+
 bool ask_passcode();
 int get_current_cn();
 string int_to_fcn(int cn_int);
@@ -35,7 +35,7 @@ void bonus_a_sort_str_array(string* arr, int arr_len);
 
 void bonus_c_display_total_payments();
 
-const string MENU_FILENAME = "menu.csv";
+const string MENU_FILENAME = "menu.txt";
 const string TEMP_ITEMS_FILENAME = "temp_items.txt";
 const string TEMP_AC_FILENAME = "temp_ac.txt";
 const string TEMP_MEAL_FILENAME = "temp_meal.txt";
@@ -175,7 +175,7 @@ int task1_get_rows(){
 }
 
 int task1_get_cols(){
-    int cols = 1;
+    int cols = 0;
     fstream f;
     f.open(MENU_FILENAME, ios::in);
     if(f.is_open()){
@@ -199,23 +199,20 @@ void task1_get_order(){
     int rows = task1_get_rows();
     int cols = task1_get_cols();
 
-    string raw_table[rows][cols];
-
+    string raw_table[rows][cols+1];
+ 
     fstream f;
     f.open(MENU_FILENAME, ios::in);
     if(f.is_open()){
         char c;
-        string s = "";
         int cur_row = 0;
         int cur_col = 0;
         while(f.get(c)){
             if(c == '\n'){
                 cur_row++;
                 cur_col = 0;
-                s = "";
             }else if(c == ','){
                 cur_col++;
-                s = "";
             }else{
                 raw_table[cur_row][cur_col] += c;
             }
@@ -307,6 +304,7 @@ void task1_get_order(){
 
                     num_meals++;
                 }
+                cout << "\nAdded " << full_meal << " to order.\n";
             }
             cout << "\n";
         }
@@ -471,7 +469,7 @@ void task2_add_order(string ac_arr[], int num_ac, string meals_arr[], int num_me
     fstream cn_file;
     cn_file.open(cn_str+".txt", ios::out);
     if(cn_file.is_open()){
-        cout << "Type of payment: " << payment_method << "\n";       
+        cout << "Type of payment: " << payment_method << "\n";
         cn_file << "Type of payment: " << payment_method << "\n";
 
         cout << "Ala carte order: \n";
@@ -658,30 +656,30 @@ void bonus_a_swap_str(string *s1, string *s2){
     *s1 = *s2;
     *s2 = temp;
 }
- 
+
 int bonus_a_char_index(char c){
     string alphabet_capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     string alphabet_lowercase = "abcdefghijklmnopqrstuvwxyz";
- 
+
     int c_index = -1;
- 
+
     for(int i = 0; i < 26; i++){
         if(c == alphabet_capital[i] || c == alphabet_lowercase[i]){
             c_index = i;
         }
     }
- 
+
     return c_index;
 }
- 
+
 void bonus_a_sort_str_array(string* arr, int arr_len){
     for(int i = 0; i < arr_len; i++){
         for(int j = i+1; j < arr_len; j++){
             string i_str = arr[i];
             string j_str = arr[j];
- 
+
             int min_len = i_str.length() < j_str.length() ? i_str.length() : j_str.length();
- 
+
             bool flag = false;
             int k = 0;
             while(!flag && k < min_len){
@@ -715,4 +713,3 @@ void bonus_c_display_total_payments(){
     cout << "Total payments received: PHP " << total_payment << ".00 \n";
     cout << "\n";
 }
-
