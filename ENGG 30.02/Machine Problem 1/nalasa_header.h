@@ -628,7 +628,7 @@ void task3_delete_order(){
         }
         cn_file.close();
 
-        cout << "Are you sure you want to delete this file? \n";
+        cout << "Are you sure you want to delete this file? This order still exists in the database. \n";
         cout << "Retype customer number to confirm: ";
         string s;
         getline(cin >> ws, s);
@@ -713,3 +713,4 @@ void bonus_c_display_total_payments(){
     cout << "Total payments received: PHP " << total_payment << ".00 \n";
     cout << "\n";
 }
+
