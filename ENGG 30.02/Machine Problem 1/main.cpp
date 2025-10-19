@@ -37,7 +37,6 @@ int main(){
                 break;
             case 6:
                 cout << "Program exited.\n";
-                remove("temp.txt");
                 break;
             default:
                 cout << "Invalid choice. Please try again.\n";
